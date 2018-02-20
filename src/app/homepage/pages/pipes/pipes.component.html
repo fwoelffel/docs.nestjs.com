@@ -153,12 +153,11 @@
     </p>
     <p>
       The built-in <code>ValidationPipe</code> offers more options than the one described above, which has been kept basic for the sake of simplicity and to reduce the learning curve.<br/>
-      If you take a look at the <code>createCatDto</code> in your controller function, you will notice that it is, as expected, an actual <code>CreateCatDto</code> instance.
-      That is because this pipe doesn't only validate the payload, but also transforms it into the expected type.
-      However, if don't want the pipe to mutate the payload and avoid the value overriding, you can configure it to avoid the transformation:
+      By default, this pipe doesn't mutate the payload value. However, you might want to get an actual <code>CreateCatDto</code> instance in your controller, and not just a plain javascript object.
+      In order to achieve that, you can configure the pipe:
     </p>
     <span class="filename">cats.controler.ts</span>
-    <pre><code class="language-typescript">{{ createCatsControllerParamPipeTransformFalse }}</code></pre>
+    <pre><code class="language-typescript">{{ createCatsControllerParamPipeTransformTrue }}</code></pre>
     <p>
       Because this pipe is based on the <code>class-validator</code> and the <code>class-transformer</code> libraries, it is possible to get more of it.
       Have a look at the constructor optional options.

@@ -184,10 +184,10 @@ async create(createCatDto) {
 }`;
   }
 
-  get createCatsControllerParamPipeTransformFalse() {
+  get createCatsControllerParamPipeTransformTrue() {
     return `
 @Post()
-@UsePipes(new ValidationPipe({ transform: false }))
+@UsePipes(new ValidationPipe({ transform: true }))
 async create(@Body() createCatDto: CreateCatDto) {
   this.catsService.create(createCatDto);
 }`;
